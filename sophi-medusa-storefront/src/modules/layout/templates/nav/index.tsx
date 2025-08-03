@@ -1,44 +1,105 @@
 import { Suspense } from "react"
-
 import { listRegions } from "@lib/data/regions"
 import { StoreRegion } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
+import { Search, Heart } from "lucide-react"
+import Image from "next/image"
+import cart from '../../../../../public/cart.png'
+import logo from '../../../../../public/logo.png'
+
 
 export default async function Nav() {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions)
-
+  
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
+      {/* Promotional Banner */}
+      <div className="bg-[#B07A5D] text-center py-2 px-4">
+        <p className="text-sm text-white font-medium">
+          Get 3% and free delivery off your first order. Start shopping today!
+        </p>
+      </div>
+
+      {/* Main Navigation */}
       <header className="relative h-16 mx-auto border-b duration-200 bg-white border-ui-border-base">
-        <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
+        <nav className="content-container flex items-center justify-between w-full h-full">
+          
+          {/* Left side - Mobile menu only */}
           <div className="flex-1 basis-0 h-full flex items-center">
-            <div className="h-full">
+            <div className="h-full block md:hidden">
               <SideMenu regions={regions} />
             </div>
-          </div>
-
-          <div className="flex items-center h-full">
+            {/* Logo */}
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
+              className="text-2xl font-serif italic text-gray-900 hover:text-gray-600 mr-8"
               data-testid="nav-store-link"
             >
-              Medusa Store
+              <Image src={logo} alt="logo" className="w-[160px] h-[30px]" />
             </LocalizedClientLink>
           </div>
 
-          <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
-            <div className="hidden small:flex items-center gap-x-6 h-full">
-              <LocalizedClientLink
+          {/* Center - Logo and Desktop Navigation */}
+          <div className="flex items-center h-full">
+            
+
+            {/* Desktop Navigation - Hidden on mobile */}
+            <div className="hidden md:flex items-center space-x-8">
+              <LocalizedClientLink 
+                href="/products" 
+                className="text-[#101010CC] hover:text-gray-600 text-[16px] font-medium uppercase tracking-wide"
+              >
+                NEW
+              </LocalizedClientLink>
+              <LocalizedClientLink 
+                href="/collections/bestsellers" 
+                className="text-[#101010CC] hover:text-gray-600 text-[16px] font-medium uppercase tracking-wide"
+              >
+                BESTSELLERS
+              </LocalizedClientLink>
+              <LocalizedClientLink 
+                href="/collections/skin" 
+                className="text-[#101010CC] hover:text-gray-600 text-[16px] font-medium uppercase tracking-wide"
+              >
+                SKIN
+              </LocalizedClientLink>
+              <LocalizedClientLink 
+                href="/collections/lips" 
+                className="text-[#101010CC] hover:text-gray-600 text-[16px] font-medium uppercase tracking-wide"
+              >
+                LIPS
+              </LocalizedClientLink>
+              <LocalizedClientLink 
+                href="/collections/findyourshade" 
+                className="text-[#101010CC] hover:text-gray-600 text-[16px] font-medium uppercase tracking-wide"
+              >
+                FINDYOURSHADE
+              </LocalizedClientLink>
+            </div>
+          </div>
+
+          {/* Right side - Icons and Cart */}
+          <div className="flex items-center gap-x-4 h-full flex-1 basis-0 justify-end">
+            {/* Desktop Icons - Hidden on small screens */}
+            <div className="hidden small:flex items-center gap-x-4">
+              <button className="text-gray-600 hover:text-gray-900">
+                <Search size={20} />
+              </button>
+              <button className="text-gray-600 hover:text-gray-900">
+                <Heart size={20} />
+              </button>
+              {/* <LocalizedClientLink
                 className="hover:text-ui-fg-base"
                 href="/account"
                 data-testid="nav-account-link"
               >
                 Account
-              </LocalizedClientLink>
+              </LocalizedClientLink> */}
             </div>
+            
+            {/* Cart Button */}
             <Suspense
               fallback={
                 <LocalizedClientLink
@@ -46,7 +107,7 @@ export default async function Nav() {
                   href="/cart"
                   data-testid="nav-cart-link"
                 >
-                  Cart (0)
+                  <span><Image src={cart} alt="cart" className="h-5 w-5"/></span>(0)
                 </LocalizedClientLink>
               }
             >
