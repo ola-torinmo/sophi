@@ -19,19 +19,19 @@ const Hero = () => {
     />
 
     {/* Product info card – now absolutely positioned */}
-    <div className="absolute bottom-[0%] right-[0%] bg-white md:w-[450px] w-[250px] md:h-[250px] h-[100px] shadow-sm p-8 ">
-      <h2 className="md:text-[30px] text-[22px] font-medium text-[#101010] mb-2 tracking-leading">
+    <div className="absolute bottom-[0%] right-[0%] bg-white md:w-[450px] w-[250px] md:h-[218px] h-[100px] shadow-sm p-[30px] ">
+      <h2 className="md:text-[26px] text-[22px] font-semibold text-[#101010] mb-2 ">
         BANANA POWDER
       </h2>
-      <h3 className="md:text-[30px] text-[22px] font-medium text-[#101010] mb-6 tracking-leading">
+      <h3 className="md:text-[26px] text-[22px] font-semibold text-[#101010] mb-6 ">
         MATTE FINISH
       </h3>
       
       <Link 
         href="/products/banana-powder"
-        className="inline-block bg-[#B07A5D] text-white font-medium py-3 px-6 rounded transition-colors duration-200 uppercase tracking-wide"
+        className="inline-block bg-[#B07A5D] text-white font-semibold py-[10.5px] px-[25px] rounded transition-colors duration-200 uppercase tracking-wide"
       >
-        DISCOVER <Image src={arrow} alt="Arrow" width={20} height={20} className="inline-block ml-2" />
+        DISCOVER <Image src={arrow} alt="Arrow" width={20} height={20} className="inline-block ml-1 mb-1.5" />
       </Link>
     </div>
   </div>

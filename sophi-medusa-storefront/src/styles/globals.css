@@ -52,7 +52,7 @@
 @font-face {
   font-family: 'Oswald';
   src: url('../../public/oswald/Oswald-Regular.ttf') format('truetype');
-  font-weight: 500;
+  
   font-style: normal;
   font-display: swap;
 }
@@ -60,7 +60,7 @@
 @font-face {
   font-family: 'Didact Gothic';
   src: url('../../public/didact-gothic/DidactGothic-Regular.ttf') format('truetype');
-  font-weight: 500;
+  
   font-style: normal;
   font-display: swap;
 }
@@ -126,5 +126,9 @@
     @apply text-[32px] leading-[44px] font-semibold;
   }
 }
+
+  p{
+    letter-spacing: 1%;
+  }
 
   

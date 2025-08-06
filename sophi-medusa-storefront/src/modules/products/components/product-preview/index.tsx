@@ -41,10 +41,10 @@ export default async function ProductPreview({
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">
       <div 
         data-testid="product-wrapper" 
-        className="bg-white rounded-[10px] shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden"
+        className="bg-[#FAFAFA] rounded-[10px]  hover:shadow-md transition-shadow duration-200 overflow-hidden"
       >
         {/* Product Image */}
-        <div className="aspect-square overflow-hidden bg-gray-100 rounded-[5px]">
+        <div className="aspect-square overflow-hidden bg-gray-100 rounded-[5px] p-[5px]">
           <Thumbnail
             thumbnail={product.thumbnail}
             images={product.images}
@@ -57,12 +57,12 @@ export default async function ProductPreview({
         {/* Product Info */}
         <div className="p-4 text-center">
           {/* Product Title */}
-          <Text 
+          <h1 
             className="font-medium text-gray-900 mb-2 uppercase tracking-wide text-sm line-clamp-2" 
             data-testid="product-title"
           >
             {product.title}
-          </Text>
+          </h1>
 
           {/* Price */}
           <div className="mb-3">

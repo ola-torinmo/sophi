@@ -16,14 +16,14 @@ export default async function Nav() {
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
       {/* Promotional Banner */}
-      <div className="bg-[#B07A5D] text-center py-2 px-4">
+      <div className="bg-[#B07A5D] text-center py-[20px] px-4 ">
         <p className="text-sm text-white font-medium">
           Get 3% and free delivery off your first order. Start shopping today!
         </p>
       </div>
 
       {/* Main Navigation */}
-      <header className="relative h-16 mx-auto border-b duration-200 bg-white border-ui-border-base">
+      <header className="relative py-[35px] mx-auto duration-200 bg-white border-ui-border-base">
         <nav className="content-container flex items-center justify-between w-full h-full">
           
           {/* Left side - Mobile menu only */}
@@ -49,31 +49,31 @@ export default async function Nav() {
             <div className="hidden md:flex items-center space-x-8">
               <LocalizedClientLink 
                 href="/products" 
-                className="text-[#101010CC] hover:text-gray-600 text-[16px] font-medium uppercase tracking-wide"
+                className="text-[#101010CC] hover:text-gray-600 text-[14px] font-semibold uppercase "
               >
                 NEW
               </LocalizedClientLink>
               <LocalizedClientLink 
                 href="/collections/bestsellers" 
-                className="text-[#101010CC] hover:text-gray-600 text-[16px] font-medium uppercase tracking-wide"
+                className="text-[#101010CC] hover:text-gray-600 text-[14px] font-semibold uppercase "
               >
                 BESTSELLERS
               </LocalizedClientLink>
               <LocalizedClientLink 
                 href="/collections/skin" 
-                className="text-[#101010CC] hover:text-gray-600 text-[16px] font-medium uppercase tracking-wide"
+                className="text-[#101010CC] hover:text-gray-600 text-[14px] font-semibold uppercase "
               >
                 SKIN
               </LocalizedClientLink>
               <LocalizedClientLink 
                 href="/collections/lips" 
-                className="text-[#101010CC] hover:text-gray-600 text-[16px] font-medium uppercase tracking-wide"
+                className="text-[#101010CC] hover:text-gray-600 text-[14px] font-semibold uppercase "
               >
                 LIPS
               </LocalizedClientLink>
               <LocalizedClientLink 
                 href="/collections/findyourshade" 
-                className="text-[#101010CC] hover:text-gray-600 text-[16px] font-medium uppercase tracking-wide"
+                className="text-[#101010CC] hover:text-gray-600 text-[14px] font-semibold uppercase "
               >
                 FINDYOURSHADE
               </LocalizedClientLink>

@@ -100,8 +100,8 @@ module.exports = {
   plugins: [
     plugin(function({ addBase, theme }) {
       addBase({
-        'h1, h2, body': { fontFamily: theme('fontFamily.oswald') },
-        'h3, p': { fontFamily: theme('fontFamily.didact-gothic') },
+        'h1, h2,h3, body': { fontFamily: theme('fontFamily.oswald') },
+        ' p': { fontFamily: theme('fontFamily.didact-gothic') },
       });
     }),
     require("tailwindcss-radix")(),

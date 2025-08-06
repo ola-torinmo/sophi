@@ -15,7 +15,7 @@ const Bestsellers = ({ products, region }: BestsellersProps) => {
       <div className="content-container">
         {/* Section Header */}
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4 uppercase tracking-wide">
+          <h2 className="text-[28px] font-bold text-gray-900 mb-2 uppercase tracking-wide">
             SHOP OUR BESTSELLER ITEMS
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -24,7 +24,7 @@ const Bestsellers = ({ products, region }: BestsellersProps) => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 p-[5px]">
           {products.slice(0, 8).map((product) => (
             <div key={product.id} className="group">
               <ProductPreview
