@@ -12,10 +12,6 @@ module.exports = defineConfig({
       authCors: process.env.AUTH_CORS || "http://localhost:9000",
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
-    },
-    // Add worker mode and port binding
-    workerMode: process.env.MEDUSA_WORKER_MODE || "shared",
-  },
-  // Add Redis configuration if needed
-  redisUrl: process.env.REDIS_URL,
+    }
+  }
 })
