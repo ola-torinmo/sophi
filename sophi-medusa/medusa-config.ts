@@ -40,10 +40,8 @@
 // })
 
 
-// medusa-config.ts
 const { defineConfig } = require('@medusajs/framework/utils')
 
-// Don't use import or loadEnv at all
 console.log('=== RENDER CONFIG ONLY ===')
 console.log('All ENV vars containing DATABASE:')
 Object.keys(process.env).forEach(key => {
@@ -54,9 +52,8 @@ Object.keys(process.env).forEach(key => {
 
 module.exports = defineConfig({
   projectConfig: {
-    // Force the exact database URL
-    databaseUrl: "postgresql://sophi_postgres_user:zKD2kXmzULxuxm8bji7SVy5SgeVJ45qy@dpg-d2a6kch5pdvs73aeg2s0-a.oregon-postgres.render.com/sophi_postgres?sslmode=require",
-    databaseType: "postgres", // Explicitly set type
+    databaseUrl: process.env.DATABASE_URL,
+    databaseType: "postgres",
     http: {
       storeCors: process.env.STORE_CORS || "http://localhost:8000",
       adminCors: process.env.ADMIN_CORS || "http://localhost:9000", 
