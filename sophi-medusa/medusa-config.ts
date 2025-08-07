@@ -1,23 +1,40 @@
-import { loadEnv, defineConfig } from '@medusajs/framework/utils'
-import path from 'path'
+import { defineConfig } from '@medusajs/framework/utils'
 
-// Only load .env from backend directory, not root
-if (process.env.NODE_ENV !== 'production') {
-  loadEnv(process.env.NODE_ENV || 'development', __dirname) // Use __dirname instead of process.cwd()
-}
+// Manually set environment variables - bypass loadEnv completely
+process.env.DATABASE_URL = process.env.DATABASE_URL || "postgresql://sophi_postgres_user:zKD2kXmzULxuxm8bji7SVy5SgeVJ45qy@dpg-d2a6kch5pdvs73aeg2s0-a.oregon-postgres.render.com/sophi_postgres?sslmode=require"
 
-console.log('DATABASE_URL:', process.env.DATABASE_URL)
+console.log('=== MANUAL DEBUG ===')
 console.log('NODE_ENV:', process.env.NODE_ENV)
+console.log('DATABASE_URL:', process.env.DATABASE_URL)
+console.log('Working directory:', process.cwd())
+
+// Check for any files that might contain "base"
+const fs = require('fs')
+const path = require('path')
+
+try {
+  const files = fs.readdirSync(process.cwd())
+  console.log('Files in current directory:', files)
+  
+  // Check if there are any database config files
+  files.forEach(file => {
+    if (file.includes('database') || file.includes('config') || file.includes('.env')) {
+      console.log(`Found config file: ${file}`)
+    }
+  })
+} catch (e) {
+  console.log('Could not read directory:', e.message)
+}
 
 module.exports = defineConfig({
   projectConfig: {
-    databaseUrl: process.env.DATABASE_URL!,
+    databaseUrl: process.env.DATABASE_URL,
     http: {
-      storeCors: process.env.STORE_CORS || "http://localhost:8000",
-      adminCors: process.env.ADMIN_CORS || "http://localhost:9000", 
-      authCors: process.env.AUTH_CORS || "http://localhost:9000",
-      jwtSecret: process.env.JWT_SECRET || "supersecret",
-      cookieSecret: process.env.COOKIE_SECRET || "supersecret",
+      storeCors: "https://your-frontend.vercel.app",
+      adminCors: "https://your-frontend.vercel.app", 
+      authCors: "https://your-frontend.vercel.app",
+      jwtSecret: "supersecret",
+      cookieSecret: "supersecret",
     }
   }
 })
