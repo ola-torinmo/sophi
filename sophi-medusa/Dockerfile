@@ -2,18 +2,20 @@ FROM node:18-alpine
 
 WORKDIR /app
 
+# Set npm config
 RUN npm config set legacy-peer-deps true
 
+# Copy package files
 COPY package*.json ./
+
+# Install dependencies
 RUN npm install --legacy-peer-deps
 
+# Copy source code
 COPY . .
-RUN npm run build
 
-# Create the admin directory structure that Medusa expects
-RUN mkdir -p dist/admin dist/uploads && \
-    echo '<!DOCTYPE html><html><body><h1>API Only</h1></body></html>' > dist/admin/index.html
+# Build backend only
+RUN npm run build:backend || npm run build
 
-EXPOSE 9000
-
-CMD ["sh", "-c", "npm run migrate && npm start"]
+# Start with custom start command that skips admin
+CMD ["sh", "-c", "npm run migrate && npx medusa start --no-admin"]

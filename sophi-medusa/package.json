@@ -17,6 +17,7 @@
     "build:admin": "medusa build --admin-only",
     "build:backend": "medusa build --backend-only",
     "start": "medusa start",
+    "start:api": "medusa start --no-admin",
     "dev": "medusa develop",
     "seed": "medusa seed",
     "migrate": "medusa db:migrate",
