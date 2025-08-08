@@ -60,19 +60,64 @@
 //   }
 // })
 
-import { loadEnv, defineConfig } from '@medusajs/framework/utils'
+// original
+// import { loadEnv, defineConfig } from '@medusajs/framework/utils'
 
-loadEnv(process.env.NODE_ENV || 'development', process.cwd())
+// loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
-module.exports = defineConfig({
+// module.exports = defineConfig({
+//   projectConfig: {
+//     databaseUrl: process.env.DATABASE_URL,
+//     http: {
+//       storeCors: process.env.STORE_CORS!,
+//       adminCors: process.env.ADMIN_CORS!,
+//       authCors: process.env.AUTH_CORS!,
+//       jwtSecret: process.env.JWT_SECRET || "supersecret",
+//       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
+//     }
+//   }
+// })
+
+
+import { defineConfig, Modules } from "@medusajs/framework/utils"
+
+export default defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     http: {
-      storeCors: process.env.STORE_CORS!,
-      adminCors: process.env.ADMIN_CORS!,
-      authCors: process.env.AUTH_CORS!,
+      storeCors: process.env.STORE_CORS || "http://localhost:8000",
+      adminCors: process.env.ADMIN_CORS || "http://localhost:7001",
+      authCors: process.env.AUTH_CORS || "http://localhost:7001",
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
-  }
+  },
+  // Railway automatically handles host binding, no need to specify host
+  modules: [
+    // Option 1: In-memory (no Redis needed)
+    {
+      resolve: "@medusajs/medusa/cache-inmemory",
+      options: {
+        ttl: 30
+      }
+    },
+    {
+      resolve: "@medusajs/medusa/event-bus-local"
+    }
+
+    // Option 2: With Redis (uncomment if you add Redis service)
+    // {
+    //   resolve: "@medusajs/medusa/cache-redis",
+    //   options: {
+    //     redisUrl: process.env.REDIS_URL,
+    //     ttl: 30
+    //   }
+    // },
+    // {
+    //   resolve: "@medusajs/medusa/event-bus-redis",
+    //   options: {
+    //     redisUrl: process.env.REDIS_URL
+    //   }
+    // }
+  ]
 })
