@@ -14,11 +14,21 @@ RUN npm install --legacy-peer-deps
 # Copy source code
 COPY . .
 
-# Try to build, create fallback if it fails
-RUN npm run build || (echo "Build failed, creating fallback admin..." && mkdir -p dist/admin && echo '<html><body><h1>Admin Disabled</h1></body></html>' > dist/admin/index.html)
+# Build backend
+RUN npm run build
+
+# Create startup script
+RUN echo '#!/bin/sh' > start.sh && \
+    echo 'mkdir -p dist/admin' >> start.sh && \
+    echo 'if [ ! -f dist/admin/index.html ]; then' >> start.sh && \
+    echo '  echo "<!DOCTYPE html><html><head><title>Admin Disabled</title></head><body><h1>Admin Panel Disabled</h1></body></html>" > dist/admin/index.html' >> start.sh && \
+    echo 'fi' >> start.sh && \
+    echo 'npm run migrate' >> start.sh && \
+    echo 'npm start' >> start.sh && \
+    chmod +x start.sh
 
 # Expose port
 EXPOSE 9000
 
-# Start with migration
-CMD ["sh", "-c", "npm run migrate && npm start"]
+# Use the startup script
+CMD ["./start.sh"]
