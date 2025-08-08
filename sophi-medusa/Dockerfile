@@ -8,7 +8,7 @@ RUN npm config set legacy-peer-deps true
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies (will generate lockfile if missing)
+# Install dependencies
 RUN npm install --legacy-peer-deps
 
 # Copy source code
@@ -20,5 +20,5 @@ RUN npm run build
 # Expose port
 EXPOSE 9000
 
-# Start the application
-CMD ["npm", "start"]
+# Run migrations then start the server
+CMD ["sh", "-c", "npm run migrate && npm start"]
