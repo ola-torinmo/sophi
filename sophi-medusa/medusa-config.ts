@@ -42,21 +42,17 @@
 
 const { defineConfig } = require('@medusajs/framework/utils')
 
-console.log('=== RENDER CONFIG ONLY ===')
-console.log('All ENV vars containing DATABASE:')
-Object.keys(process.env).forEach(key => {
-  if (key.toLowerCase().includes('database') || key.toLowerCase().includes('db')) {
-    console.log(`${key}: ${process.env[key]}`)
-  }
-})
+// Don't use loadEnv - rely on Railway environment variables
+console.log('DATABASE_URL set:', !!process.env.DATABASE_URL)
+console.log('REDIS_URL set:', !!process.env.REDIS_URL)
 
 module.exports = defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
-    databaseType: "postgres",
+    redisUrl: process.env.REDIS_URL,
     http: {
       storeCors: process.env.STORE_CORS || "http://localhost:8000",
-      adminCors: process.env.ADMIN_CORS || "http://localhost:9000", 
+      adminCors: process.env.ADMIN_CORS || "http://localhost:9000",
       authCors: process.env.AUTH_CORS || "http://localhost:9000",
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
