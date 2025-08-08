@@ -1332,11 +1332,6 @@
   resolved "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.21.5.tgz"
   integrity sha512-tQd/1efJuzPC6rCFwEvLtci/xNFcTZknmXs98FYDfGE4wP9ClFV98nyKrzJKVPMhdDnjzLhdUyMX4PsQAPjwIw==
 
-"@esbuild/win32-x64@0.25.8":
-  version "0.25.8"
-  resolved "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.25.8.tgz"
-  integrity sha512-cn3Yr7+OaaZq1c+2pe+8yxC8E144SReCQjN6/2ynubzYjvyqZjTXfQJpAcQpsdJq3My7XADANiYGHoFC69pLQw==
-
 "@floating-ui/core@^1.7.3":
   version "1.7.3"
   resolved "https://registry.npmjs.org/@floating-ui/core/-/core-1.7.3.tgz"
@@ -1901,18 +1896,13 @@
     tailwindcss "^3.3.6"
     vite "^5.4.14"
 
-"@medusajs/admin-sdk@2.8.7":
-  version "2.8.7"
-  resolved "https://registry.npmjs.org/@medusajs/admin-sdk/-/admin-sdk-2.8.7.tgz"
-  integrity sha512-2GOMXN7+eM7Se+6LivyN4C3CHOtWzZ6F6Nzbo8hvviK+nKO2jeSWWr0ooTQGT+swy9eZSUqb1nNZy58I82I77A==
+"@medusajs/admin-sdk@2.8.8":
+  version "2.8.8"
+  resolved "https://registry.npmjs.org/@medusajs/admin-sdk/-/admin-sdk-2.8.8.tgz"
+  integrity sha512-vcQ+567BHK+Oqv0tuG8cf3OFDoglpKWorIV/faU+LFdJrTBfJBXLYjoUdEpDs5fv5ywhia7/r7LzWjpS1HxGqQ==
   dependencies:
-    "@medusajs/admin-shared" "2.8.7"
-    zod "3.22.4"
-
-"@medusajs/admin-shared@2.8.7":
-  version "2.8.7"
-  resolved "https://registry.npmjs.org/@medusajs/admin-shared/-/admin-shared-2.8.7.tgz"
-  integrity sha512-ydlKZiuaSP/swvxCyhE11TACClSd1vIboUNECWOfmT9cQYJXHj4SALzkG0p6oSNeECNSw7y3jL/7/IHN0HJY1g==
+    "@medusajs/admin-shared" "2.8.8"
+    zod "3.25.76"
 
 "@medusajs/admin-shared@2.8.8":
   version "2.8.8"
@@ -1995,7 +1985,7 @@
   resolved "https://registry.npmjs.org/@medusajs/cart/-/cart-2.8.8.tgz"
   integrity sha512-n/8uHWRemauqf0ad+Unb/Tu91w7ssdvptc6N+6pl50VZj5FHQGPkNjYHJBzJwy+NCiWxL5gqq5bPFsR8NduwtA==
 
-"@medusajs/cli@^2.8.8":
+"@medusajs/cli@2.8.8":
   version "2.8.8"
   resolved "https://registry.npmjs.org/@medusajs/cli/-/cli-2.8.8.tgz"
   integrity sha512-zwl/oAmN7ZSMAO1Qav3unJGKJzKpXnbFc4hsGZr4dY51HXIs5Xzt077Ia/mZR+tMiirHWY5MT4c8LoJuFMIhsQ==
@@ -2118,7 +2108,7 @@
   resolved "https://registry.npmjs.org/@medusajs/file/-/file-2.8.8.tgz"
   integrity sha512-W3ZkpcW4RHj8qFSp0FT3PbRVAqS71gI111gEntvrmitDGUVz0knS2otKkTwtUv9QmcsM6RuQVp0Oc6x4cijSqA==
 
-"@medusajs/framework@^2.8.8":
+"@medusajs/framework@2.8.8":
   version "2.8.8"
   resolved "https://registry.npmjs.org/@medusajs/framework/-/framework-2.8.8.tgz"
   integrity sha512-n0PtM4RvDp+EPuOyUAowzPAz0cNDrO0lC/YpySFXMQw1sIJ7VFM9gyUnr/rLakBznEs7liO1h9zFkAJIfl2aHw==
@@ -2204,7 +2194,7 @@
   resolved "https://registry.npmjs.org/@medusajs/locking/-/locking-2.8.8.tgz"
   integrity sha512-fK1NTjkaWkRDZIeMbDu0RDiqo1/L4QNokGgoqb5/ry7XraAMu24uCPlPuOWTf0lcKY8CRqOG9PMgaqdn6ycIXA==
 
-"@medusajs/medusa@^2.8.8":
+"@medusajs/medusa@2.8.8":
   version "2.8.8"
   resolved "https://registry.npmjs.org/@medusajs/medusa/-/medusa-2.8.8.tgz"
   integrity sha512-l09XXQTlRmA7qKd0iDzT4oADaB3MQJmb2PdbfMiXvDA4hV86NUTvZMkJ30FLSbaRCMXW2QTJq20/ilHVkV0oZQ==
@@ -2382,10 +2372,10 @@
     remove-trailing-slash "^0.1.1"
     uuid "^8.3.2"
 
-"@medusajs/test-utils@2.8.7":
-  version "2.8.7"
-  resolved "https://registry.npmjs.org/@medusajs/test-utils/-/test-utils-2.8.7.tgz"
-  integrity sha512-wUsXVZXyEH4B34mA9bHeoDuEGx53kvmfxTihF/Q/paTtiVDSOrT1z6b4LiXvRX14PlIn+zZwOg6Gt++KpRJEvQ==
+"@medusajs/test-utils@2.8.8":
+  version "2.8.8"
+  resolved "https://registry.npmjs.org/@medusajs/test-utils/-/test-utils-2.8.8.tgz"
+  integrity sha512-QRb5G2UlfNUv11fsieJEZnIzQu/TTey6gaxNrvyzcBT5I3STcKEDmqipKDIFuFxInyLnv7Qmaq2bSNX9LmzEyA==
   dependencies:
     "@types/express" "^4.17.17"
     axios "^0.21.4"
@@ -6093,10 +6083,10 @@ chardet@^0.7.0:
   resolved "https://registry.npmjs.org/chardet/-/chardet-0.7.0.tgz"
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
 
-chokidar@^3.4.2, chokidar@^3.6.0:
-  version "3.6.0"
-  resolved "https://registry.npmjs.org/chokidar/-/chokidar-3.6.0.tgz"
-  integrity sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==
+chokidar@^3.4.2, chokidar@3.5.3:
+  version "3.5.3"
+  resolved "https://registry.npmjs.org/chokidar/-/chokidar-3.5.3.tgz"
+  integrity sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==
   dependencies:
     anymatch "~3.1.2"
     braces "~3.0.2"
@@ -6108,10 +6098,10 @@ chokidar@^3.4.2, chokidar@^3.6.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
-chokidar@3.5.3:
-  version "3.5.3"
-  resolved "https://registry.npmjs.org/chokidar/-/chokidar-3.5.3.tgz"
-  integrity sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==
+chokidar@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.npmjs.org/chokidar/-/chokidar-3.6.0.tgz"
+  integrity sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==
   dependencies:
     anymatch "~3.1.2"
     braces "~3.0.2"
@@ -6872,38 +6862,6 @@ esbuild@^0.21.3:
     "@esbuild/win32-ia32" "0.21.5"
     "@esbuild/win32-x64" "0.21.5"
 
-esbuild@^0.25.0:
-  version "0.25.8"
-  resolved "https://registry.npmjs.org/esbuild/-/esbuild-0.25.8.tgz"
-  integrity sha512-vVC0USHGtMi8+R4Kz8rt6JhEWLxsv9Rnu/lGYbPR8u47B+DCBksq9JarW0zOO7bs37hyOK1l2/oqtbciutL5+Q==
-  optionalDependencies:
-    "@esbuild/aix-ppc64" "0.25.8"
-    "@esbuild/android-arm" "0.25.8"
-    "@esbuild/android-arm64" "0.25.8"
-    "@esbuild/android-x64" "0.25.8"
-    "@esbuild/darwin-arm64" "0.25.8"
-    "@esbuild/darwin-x64" "0.25.8"
-    "@esbuild/freebsd-arm64" "0.25.8"
-    "@esbuild/freebsd-x64" "0.25.8"
-    "@esbuild/linux-arm" "0.25.8"
-    "@esbuild/linux-arm64" "0.25.8"
-    "@esbuild/linux-ia32" "0.25.8"
-    "@esbuild/linux-loong64" "0.25.8"
-    "@esbuild/linux-mips64el" "0.25.8"
-    "@esbuild/linux-ppc64" "0.25.8"
-    "@esbuild/linux-riscv64" "0.25.8"
-    "@esbuild/linux-s390x" "0.25.8"
-    "@esbuild/linux-x64" "0.25.8"
-    "@esbuild/netbsd-arm64" "0.25.8"
-    "@esbuild/netbsd-x64" "0.25.8"
-    "@esbuild/openbsd-arm64" "0.25.8"
-    "@esbuild/openbsd-x64" "0.25.8"
-    "@esbuild/openharmony-arm64" "0.25.8"
-    "@esbuild/sunos-x64" "0.25.8"
-    "@esbuild/win32-arm64" "0.25.8"
-    "@esbuild/win32-ia32" "0.25.8"
-    "@esbuild/win32-x64" "0.25.8"
-
 escalade@^3.1.1, escalade@^3.2.0:
   version "3.2.0"
   resolved "https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz"
@@ -7099,11 +7057,6 @@ fbjs@^3.0.0:
     promise "^7.1.1"
     setimmediate "^1.0.5"
     ua-parser-js "^1.0.35"
-
-fdir@^6.4.4:
-  version "6.4.6"
-  resolved "https://registry.npmjs.org/fdir/-/fdir-6.4.6.tgz"
-  integrity sha512-hiFoqpyZcfNm1yc4u8oWCf9A2c4D3QjCrks3zmoVKVxpQRzmPNar1hUJcBG2RQHvEVGDN+Jm81ZheVLAQMK6+w==
 
 fdir@6.1.1:
   version "6.1.1"
@@ -9242,11 +9195,6 @@ picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.3, picomatch@^2.3.1:
   resolved "https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
-picomatch@^4.0.2:
-  version "4.0.3"
-  resolved "https://registry.npmjs.org/picomatch/-/picomatch-4.0.3.tgz"
-  integrity sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==
-
 pify@^2.3.0:
   version "2.3.0"
   resolved "https://registry.npmjs.org/pify/-/pify-2.3.0.tgz"
@@ -9318,7 +9266,7 @@ postcss-value-parser@^4.0.0, postcss-value-parser@^4.2.0:
   resolved "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
-postcss@^8.4.32, postcss@^8.4.43, postcss@^8.4.47, postcss@^8.5.3:
+postcss@^8.4.32, postcss@^8.4.43, postcss@^8.4.47:
   version "8.5.6"
   resolved "https://registry.npmjs.org/postcss/-/postcss-8.5.6.tgz"
   integrity sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==
@@ -9908,7 +9856,7 @@ reusify@^1.0.4:
   resolved "https://registry.npmjs.org/reusify/-/reusify-1.0.4.tgz"
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
 
-rollup@^4.20.0, rollup@^4.34.9:
+rollup@^4.20.0:
   version "4.46.2"
   resolved "https://registry.npmjs.org/rollup/-/rollup-4.46.2.tgz"
   integrity sha512-WMmLFI+Boh6xbop+OAGo9cQ3OgX9MIg7xOQjn+pTCwOkk+FNDAeAemXkJ3HzDJrVXleLOFVa1ipuc1AmEx1Dwg==
@@ -10495,14 +10443,6 @@ tildify@2.0.0:
   resolved "https://registry.npmjs.org/tildify/-/tildify-2.0.0.tgz"
   integrity sha512-Cc+OraorugtXNfs50hU9KS369rFXCfgGLpfCfvlc+Ud5u6VWmUQsOAa9HbTvheQdYnrdJqqv1e5oIqXppMYnSw==
 
-tinyglobby@^0.2.13:
-  version "0.2.14"
-  resolved "https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.14.tgz"
-  integrity sha512-tX5e7OM1HnYr2+a2C/4V0htOcSQcoSTH9KgJnVvNm5zm/cyEWKJ7j7YutsH9CxMdtOkkLFy2AHrMci9IM8IPZQ==
-  dependencies:
-    fdir "^6.4.4"
-    picomatch "^4.0.2"
-
 title-case@^3.0.3:
   version "3.0.3"
   resolved "https://registry.npmjs.org/title-case/-/title-case-3.0.3.tgz"
@@ -10816,20 +10756,6 @@ vite@^5.4.14:
   optionalDependencies:
     fsevents "~2.3.3"
 
-vite@^6.3.5:
-  version "6.3.5"
-  resolved "https://registry.npmjs.org/vite/-/vite-6.3.5.tgz"
-  integrity sha512-cZn6NDFE7wdTpINgs++ZJ4N49W2vRp8LCKrn3Ob1kYNtOo21vfDoaV5GzBfLU4MovSAB8uNRm4jgzVQZ+mBzPQ==
-  dependencies:
-    esbuild "^0.25.0"
-    fdir "^6.4.4"
-    picomatch "^4.0.2"
-    postcss "^8.5.3"
-    rollup "^4.34.9"
-    tinyglobby "^0.2.13"
-  optionalDependencies:
-    fsevents "~2.3.3"
-
 void-elements@3.1.0:
   version "3.1.0"
   resolved "https://registry.npmjs.org/void-elements/-/void-elements-3.1.0.tgz"
@@ -11108,11 +11034,6 @@ zod-validation-error@3.5.1:
   version "3.5.1"
   resolved "https://registry.npmjs.org/zod-validation-error/-/zod-validation-error-3.5.1.tgz"
   integrity sha512-ozT8jy2nHaeKjaRIEThwgRXBwm16hAy0BaTRx1I2IY1xrezPegmlFmYKb5tcvYqZDQm0sfZtDr2IR7CdCJzTGw==
-
-zod@3.22.4:
-  version "3.22.4"
-  resolved "https://registry.npmjs.org/zod/-/zod-3.22.4.tgz"
-  integrity sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==
 
 zod@3.25.76:
   version "3.25.76"
