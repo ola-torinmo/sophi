@@ -26,18 +26,30 @@ FROM node:20
 # Create app directory
 WORKDIR /app
 
-# Install dependencies first (better caching)
+# Install dependencies first
 COPY package*.json ./
 RUN npm install --production
 
-# Copy the rest of the files
+# Copy the rest of the backend code
 COPY . .
 
-# Build project (if needed)
-RUN npm run build || echo "No build step"
+# Build the Medusa server and admin
+RUN npx medusa build
+
+# Copy environment file into the build folder
+COPY .env .medusa/server/.env
+COPY .env .medusa/server/.env.production
 
 # Expose Medusa API port
 EXPOSE 9000
 
-# Start Medusa API
+# Set environment to production
+ENV NODE_ENV=production
+
+# Start Medusa from the build folder
+WORKDIR /app/.medusa/server
+# CMD ["npx", "medusa", "start"]
+
+
+# # Start Medusa API
 CMD ["sh", "-c", "npm run migrate && npx medusa start"]
