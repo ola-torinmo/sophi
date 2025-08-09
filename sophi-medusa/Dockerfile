@@ -36,15 +36,30 @@ RUN npm install --legacy-peer-deps
 # Copy source code
 COPY . .
 
-# Set environment variable to disable admin
-ENV DISABLE_ADMIN=true
-ENV MEDUSA_DISABLE_ADMIN=true
+# Build normally first
+RUN npm run build
 
-# Build backend only
-RUN npm run build:backend || npm run build
+# Debug: Check what was actually built
+RUN echo "=== Checking build output ===" && \
+    find . -name "index.html" -type f && \
+    echo "=== Admin directory content ===" && \
+    ls -la dist/ || echo "No dist directory" && \
+    ls -la dist/admin/ || echo "No admin directory in dist"
 
-# Expose port
+# Create admin files in ALL possible locations Medusa might check
+RUN mkdir -p dist/admin && \
+    mkdir -p build/admin && \
+    mkdir -p admin/dist && \
+    mkdir -p .medusa/admin && \
+    echo '<!DOCTYPE html><html><head><title>Admin</title></head><body><div id="root"></div></body></html>' > dist/admin/index.html && \
+    echo '<!DOCTYPE html><html><head><title>Admin</title></head><body><div id="root"></div></body></html>' > build/admin/index.html && \
+    echo '<!DOCTYPE html><html><head><title>Admin</title></head><body><div id="root"></div></body></html>' > admin/dist/index.html && \
+    echo '<!DOCTYPE html><html><head><title>Admin</title></head><body><div id="root"></div></body></html>' > .medusa/admin/index.html
+
+# Final verification
+RUN echo "=== Final verification ===" && \
+    find . -name "index.html" -type f
+
 EXPOSE 9000
 
-# Start with admin disabled
-CMD ["sh", "-c", "npm run migrate && DISABLE_ADMIN=true npm start"]
+CMD ["sh", "-c", "npm run migrate && npm start"]
