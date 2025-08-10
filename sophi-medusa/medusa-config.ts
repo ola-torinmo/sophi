@@ -92,9 +92,7 @@ export default defineConfig({
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
   },
-  // Railway automatically handles host binding, no need to specify host
   modules: [
-    // Option 1: In-memory (no Redis needed)
     {
       resolve: "@medusajs/medusa/cache-inmemory",
       options: {
@@ -103,7 +101,16 @@ export default defineConfig({
     },
     {
       resolve: "@medusajs/medusa/event-bus-local"
+    },
+    // Add admin back - Medusa v2 requires it
+    {
+      resolve: "@medusajs/admin",
+      options: {
+        autoRebuild: false // Don't auto rebuild in production
+      }
     }
+  ]
+})
 
     // Option 2: With Redis (uncomment if you add Redis service)
     // {
@@ -117,7 +124,5 @@ export default defineConfig({
     //   resolve: "@medusajs/medusa/event-bus-redis",
     //   options: {
     //     redisUrl: process.env.REDIS_URL
-    //   }
-    // }
-  ]
-})
+//   }
+// }
