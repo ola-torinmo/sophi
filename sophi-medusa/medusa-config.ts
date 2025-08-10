@@ -90,42 +90,20 @@ export default defineConfig({
       authCors: process.env.AUTH_CORS || "http://localhost:7001",
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
-    },
-    // Railway-specific configurations
-    worker_mode: process.env.MEDUSA_WORKER_MODE || "shared"
+    }
   },
+  // Railway automatically handles host binding, no need to specify host
   modules: [
-    // Use Redis modules if available, fallback to in-memory/local
-    process.env.REDIS_URL ? {
-      resolve: "@medusajs/medusa/cache-redis",
-      options: {
-        redisUrl: process.env.REDIS_URL,
-        ttl: 30
-      }
-    } : {
+    // Option 1: In-memory (no Redis needed)
+    {
       resolve: "@medusajs/medusa/cache-inmemory",
       options: {
         ttl: 30
       }
     },
-    process.env.REDIS_URL ? {
-      resolve: "@medusajs/medusa/event-bus-redis",
-      options: {
-        redisUrl: process.env.REDIS_URL
-      }
-    } : {
-      resolve: "@medusajs/medusa/event-bus-local"
-    },
-    // File storage
     {
-      resolve: "@medusajs/medusa/file-local",
-      options: {
-        upload_dir: "uploads",
-        backend_url: process.env.MEDUSA_BACKEND_URL || `http://localhost:${process.env.PORT || 9000}`,
-      }
+      resolve: "@medusajs/medusa/event-bus-local"
     }
-  ]
-})
 
     // Option 2: With Redis (uncomment if you add Redis service)
     // {
