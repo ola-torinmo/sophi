@@ -15,7 +15,7 @@
   "scripts": {
      "dev": "medusa develop",
     "build": "medusa build",
-    "start": "medusa start",
+    "start": "MEDUSA_DISABLE_ADMIN=true medusa start",
     "seed": "medusa seed",
     "migrate": "medusa db:migrate",
     "migration:generate": "medusa db:generate",
