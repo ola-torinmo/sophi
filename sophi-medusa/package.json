@@ -13,16 +13,13 @@
     "medusa"
   ],
   "scripts": {
+     "dev": "medusa develop",
     "build": "medusa build",
-    "build:admin": "medusa build --admin-only",
-    "build:backend": "medusa build --backend-only",
     "start": "medusa start",
-    "dev": "medusa develop",
-    "seed": "medusa seed",
-    "migrate": "medusa db:migrate",
-    "migration:generate": "medusa db:generate",
-    "migration:run": "medusa db:migrate",
-    "migration:revert": "medusa db:migrate:revert"
+    "start:server": "medusa start",
+    "db:migrate": "medusa db:migrate",
+    "db:seed": "medusa db:seed",
+    "db:setup": "medusa db:setup"
   },
   "dependencies": {
     "@medusajs/admin-sdk": "2.8.8",

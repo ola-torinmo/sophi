@@ -20,54 +20,56 @@
 # # Start with custom start command that skips admin
 # CMD ["sh", "-c", "npm run migrate && npx medusa start --no-admin"]
 
-FROM node:18-alpine
+# Use Node.js 18 Alpine for smaller image size
+FROM node:18-alpine AS base
 
+# Install dependencies only when needed
+FROM base AS deps
 WORKDIR /app
-
-# Install bash for proper script execution
-RUN apk add --no-cache bash
-
-# Set npm config
-RUN npm config set legacy-peer-deps true
 
 # Copy package files
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install --legacy-peer-deps
+RUN npm install --only=production && npm cache clean --force
+
+# Rebuild the source code only when needed
+FROM base AS builder
+WORKDIR /app
+
+# Copy package files and install all dependencies (including dev)
+COPY package*.json ./
+RUN npm install
 
 # Copy source code
 COPY . .
 
-# Create the .medusa directory structure that Medusa v2 expects
-RUN mkdir -p .medusa/server
+# Build the application
+RUN npm run build
 
-# Build using the exact Medusa v2 process
-RUN npm run build && \
-    # Copy build output to the location Medusa expects
-    mkdir -p .medusa/server/dist && \
-    cp -r dist/* .medusa/server/dist/ 2>/dev/null || true
+# Production image, copy all the files and run medusa
+FROM base AS runner
+WORKDIR /app
 
-# If build failed, create minimal structure
-RUN if [ ! -f ".medusa/server/dist/admin/index.html" ]; then \
-        mkdir -p .medusa/server/dist/admin && \
-        echo '<!DOCTYPE html><html><head><title>Medusa Admin</title></head><body><div id="root"></div></body></html>' > .medusa/server/dist/admin/index.html; \
-    fi
+# Don't run production as root
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 medusa
 
-# Change to the directory Medusa expects for production
-WORKDIR /app/.medusa/server
+# Copy the built application
+COPY --from=builder --chown=medusa:nodejs /app/.medusa/server ./dist
+COPY --from=builder --chown=medusa:nodejs /app/package*.json ./
+COPY --from=deps --chown=medusa:nodejs /app/node_modules ./node_modules
 
-# Copy package.json to the server directory
-COPY package*.json ./
+# Copy any other necessary files
+COPY --from=builder --chown=medusa:nodejs /app/medusa-config.js ./
+COPY --from=builder --chown=medusa:nodejs /app/uploads ./uploads
 
-# Create start script
-RUN echo '#!/bin/bash' > start.sh && \
-    echo 'cd /app' >> start.sh && \
-    echo 'npm run migrate' >> start.sh && \
-    echo 'cd /app/.medusa/server' >> start.sh && \
-    echo 'node /app/dist/main.js || medusa start' >> start.sh && \
-    chmod +x start.sh
+USER medusa
 
 EXPOSE 9000
 
-CMD ["./start.sh"]
+ENV PORT 9000
+ENV NODE_ENV production
+
+# Start the application using medusa start
+CMD ["medusa", "start"]
