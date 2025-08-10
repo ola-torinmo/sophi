@@ -18,7 +18,7 @@ COPY . .
 RUN npm run build:backend || npm run build
 
 # Start with custom start command that skips admin
-CMD ["sh", "-c", "npm run migrate && npx medusa start --no-admin"]
+CMD ["sh", "-c", "npm run migrate && npx medusa start"]
 
 # FROM node:18-alpine
 
